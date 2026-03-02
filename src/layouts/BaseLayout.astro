@@ -1,0 +1,29 @@
+---
+const { title = "Site produits environnement" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <a href="/fr">Accueil</a> |
+        <a href="/fr/a-propos">À propos</a> |
+        <a href="/fr/contact">Contact</a> |
+        <a href="/fr/energie/solaire">Solaire</a>
+      </nav>
+      <hr />
+    </header>
+
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
+
