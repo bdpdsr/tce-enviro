@@ -1,13 +1,16 @@
 ---
-import BaseLayout from "@/layouts/BaseLayout.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="Accueil – Français">
-  <div style="text-align:center; padding: 20px;">
-    <img
-      src="/images/tce-enviro.jpg"
-      alt="TCE Enviro"
-      style="max-width:100%; height:auto;"
-    />
+<BaseLayout title="Accueil">
+  <meta http-equiv="refresh" content="0; url=/fr/" />
+  <script>
+    // Redirection JS en plus (au cas où)
+    window.location.replace("/fr/");
+  </script>
+
+  <div style="max-width:900px;margin:0 auto;padding:20px;">
+    <p>Redirection vers la version française…</p>
+    <p><a href="/fr/">Cliquez ici si rien ne se passe</a>.</p>
   </div>
 </BaseLayout>
