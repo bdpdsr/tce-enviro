@@ -3,11 +3,47 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="Accueil – Français">
-  <div style="text-align:center; padding: 20px;">
+  <div style="text-align:center; padding:20px;">
+  <div style="position:relative; display:inline-block; max-width:900px; width:100%;">
+
     <img
       src="/images/tce-enviro.jpg"
       alt="TCE Enviro"
-      style="max-width:900px; width:100%; height:auto;"
+      style="display:block; width:100%; height:auto;"
     />
+
+    <!-- ===== Eaux grise et noire ===== -->
+    <a
+      href="/fr/environnement/eau"
+      aria-label="Eaux grise et noire"
+      style="
+        position:absolute;
+        left:72%;
+        top:38%;
+        width:28%;
+        height:16%;
+        background:rgba((0,0,0,0);
+        cursor: pointer;
+        z-index: 2;
+      ">
+    </a>
+
+    <!-- ===== Gestion des déchets ===== -->
+    <a
+      href="/fr/environnement/dechets"
+      aria-label="Gestion des déchets"
+      style="
+        position:absolute;
+        left:75%;
+        top:55%;
+        width:26%;
+        height:14%;
+        background:rgba((0,0,0,0);
+        cursor: pointer;
+        z-index: 1;
+      ">
+    </a>
+
   </div>
+</div>
 </BaseLayout>
