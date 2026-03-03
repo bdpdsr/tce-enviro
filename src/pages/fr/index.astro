@@ -1,54 +1,110 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="Accueil – Français">
+<BaseLayout title="Accueil — Français">
   <div style="text-align:center; padding:20px;">
-  <div style="position:relative; display:inline-block; max-width:900px; width:100%;">
+    <div style="position:relative; display:inline-block; max-width:900px; width:100%;">
 
-    <img
-      src="/images/tce-enviro.jpg"
-      alt="TCE Enviro"
-      style="display:block; width:100%; height:auto;"
-    />
+      <!-- Image (ne doit pas capturer les clics) -->
+      <img
+        src="/images/tce-enviro.jpg"
+        alt="TCE Enviro"
+        style="
+          display:block;
+          width:100%;
+          height:auto;
+          position:relative;
+          z-index:1;
+          pointer-events:none;
+        "
+      />
 
-    <!-- ===== Eaux grise et noire ===== -->
-    <a
-      href="/fr/environnement/eau"
-      aria-label="Eaux grise et noire"
-      style="
-        position:absolute;
-        left:72%;
-        top:38%;
-        width:28%;
-        height:16%;
-        background: rgba(0,0,0,0);
-        cursor: pointer;
-        display:block;
-        z-index: 10;
-        pointer-events:auto;
-        
-      ">
-    </a>
+      <!-- ====== Énergie solaire ====== -->
+      <a
+        href="/fr/energie"
+        aria-label="Énergie solaire"
+        style="
+          position:absolute;
+          left:0%;
+          top:0%;
+          width:33%;
+          height:22%;
+          background:rgba(0,0,0,0);
+          cursor:pointer;
+          display:block;
+          z-index:10;
+        "
+      ></a>
 
-    <!-- ===== Gestion des déchets ===== -->
-    <a
-      href="/fr/environnement/dechets"
-      aria-label="Gestion des déchets"
-      style="
-        position:absolute;
-        left:75%;
-        top:55%;
-        width:26%;
-        height:14%;
-        background:rgba(0,0,0,0);
-        cursor: pointer;
-        display:block;
-        z-index: 10;
-        pointer-events:auto;
-      ">
-    </a>
+      <!-- ====== Batterie au sable ====== -->
+      <a
+        href="/fr/energie"
+        aria-label="Batterie au sable"
+        style="
+          position:absolute;
+          left:0%;
+          top:28%;
+          width:33%;
+          height:28%;
+          background:rgba(0,0,0,0);
+          cursor:pointer;
+          display:block;
+          z-index:10;
+        "
+      ></a>
 
+      <!-- ====== Compostage ====== -->
+      <a
+        href="/fr/environnement/compostage"
+        aria-label="Compostage"
+        style="
+          position:absolute;
+          left:63%;
+          top:0%;
+          width:37%;
+          height:25%;
+          background:rgba(0,0,0,0);
+          cursor:pointer;
+          display:block;
+          z-index:10;
+        "
+      ></a>
+
+      <!-- ====== Eaux grise et noire ====== -->
+      <a
+        href="/fr/environnement/eau"
+        aria-label="Eaux grise et noire"
+        style="
+          position:absolute;
+          left:72%;
+          top:38%;
+          width:28%;
+          height:16%;
+          background:rgba(0,0,0,0);
+          cursor:pointer;
+          display:block;
+          z-index:10;
+        "
+      ></a>
+
+      <!-- ====== Gestion des déchets ====== -->
+      <a
+        href="/fr/environnement/dechets"
+        aria-label="Gestion des déchets"
+        style="
+          position:absolute;
+          left:75%;
+          top:55%;
+          width:26%;
+          height:14%;
+          background:rgba(0,0,0,0);
+          cursor:pointer;
+          display:block;
+          z-index:10;
+        "
+      ></a>
+
+    </div>
   </div>
-</div>
 </BaseLayout>
