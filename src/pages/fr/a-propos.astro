@@ -1,7 +1,82 @@
 ---
-import BaseLayout from "@/layouts/BaseLayout.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="À propos — Français">
-  <h1>À propos - Français</h1>
+<BaseLayout title="À propos | TCE-enviro">
+  <section style="width:100%; margin:0; padding:0;">
+    <img
+      src="/images/a-propos-hero.jpg"
+      alt="Solutions environnementales"
+      style="width:100%; height:45vh; max-height:420px; object-fit:cover; object-position:center; display:block;"
+    />
+  </section>
+
+  <section class="page-content">
+    <div class="container">
+      <h1>À propos</h1>
+      <p>Intégration de solutions environnementales — eau, matières résiduelles, énergie.</p>
+
+      <h2>Notre mission</h2>
+      <p>
+        TCE-ENVIRO est une entreprise canadienne spécialisée dans l’exportation et l’intégration de solutions
+        environnementales avancées destinées aux municipalités, aux infrastructures institutionnelles et aux projets
+        immobiliers d’envergure. Notre mission est d’accompagner les territoires vers une autonomie énergétique et hydrique
+        durable, tout en réduisant significativement leur empreinte carbone.
+      </p>
+
+      <h2>Notre expertise</h2>
+      <p>
+        Nous représentons et intégrons des technologies canadiennes éprouvées dans les domaines du traitement des eaux
+        usées, de la valorisation des matières résiduelles, de l’énergie solaire thermique et de l’optimisation des
+        infrastructures souterraines. Grâce à des systèmes modulaires et évolutifs, nos solutions s’adaptent aussi bien
+        aux petites municipalités qu’aux grands complexes résidentiels, hôteliers ou industriels.
+      </p>
+
+      <h2>Notre approche</h2>
+      <p>
+        TCE-ENVIRO agit comme partenaire stratégique, de l’analyse des besoins jusqu’à la mise en œuvre complète des
+        projets. Nous travaillons en collaboration avec les autorités locales, les ingénieurs, les promoteurs et les
+        institutions financières afin de structurer des projets viables, performants et reproductibles. Notre approche
+        intègre également les objectifs de réduction des GES et la valorisation potentielle des crédits carbone.
+      </p>
+
+      <h2>Une entreprise tournée vers l’international</h2>
+      <p>
+        Entreprise tournée vers l’international, TCE-ENVIRO s’appuie sur l’excellence manufacturière canadienne pour offrir
+        des infrastructures durables, fiables et adaptées aux réalités climatiques et réglementaires de chaque territoire.
+        Nous croyons fermement que l’innovation environnementale est un moteur de développement économique responsable et un
+        levier concret pour bâtir les villes de demain.
+      </p>
+    </div>
+  </section>
+
+  <style>
+    .page-content{
+      padding: 50px 20px 80px;
+      background-color: #ffffff;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    .container{
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    h1{
+      margin: 0 0 18px 0;
+      font-size: 2.2rem;
+      font-weight: 650;
+      color: #1e3a5f;
+    }
+    h2{
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-top: 40px;
+      margin-bottom: 12px;
+      color: #1e3a5f;
+    }
+    p{
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: #333;
+    }
+  </style>
 </BaseLayout>

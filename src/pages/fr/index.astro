@@ -1,110 +1,133 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const blocs = [
+  {
+    title: "Eau",
+    desc: "Traitement, réutilisation et gestion durable de l’eau.",
+    href: "/fr/environnement/eau/",
+    img: "/images/home-eau.jpg",
+    alt: "Solutions de traitement et gestion de l’eau",
+  },
+  {
+    title: "Déchets",
+    desc: "Gestion et valorisation des matières résiduelles.",
+    href: "/fr/environnement/dechets/",
+    img: "/images/home-dechets.jpg",
+    alt: "Solutions de gestion des déchets",
+  },
+  {
+    title: "Énergie",
+    desc: "Solaire et stockage d’énergie.",
+    href: "/fr/energie/",
+    img: "/images/home-energie.jpg",
+    alt: "Solutions d’énergie durable",
+  },
+];
 ---
 
-<BaseLayout title="Accueil — Français">
-  <div style="text-align:center; padding:20px;">
-    <div style="position:relative; display:inline-block; max-width:900px; width:100%;">
+<BaseLayout title="TCE-enviro | Accueil">
 
-      <!-- Image (ne doit pas capturer les clics) -->
-      <img
-        src="/images/tce-enviro.jpg"
-        alt="TCE Enviro"
-        style="
-          display:block;
-          width:100%;
-          height:auto;
-          position:relative;
-          z-index:1;
-          pointer-events:none;
-        "
-      />
+  <!-- HERO -->
+  <section class="hero">
+    <img
+      src="/images/hero-home.jpg"
+      alt="Solutions environnementales TCE-enviro"
+    />
+  </section>
 
-      <!-- ====== Énergie solaire ====== -->
-      <a
-        href="/fr/energie"
-        aria-label="Énergie solaire"
-        style="
-          position:absolute;
-          left:0%;
-          top:0%;
-          width:33%;
-          height:22%;
-          background:rgba(0,0,0,0);
-          cursor:pointer;
-          display:block;
-          z-index:10;
-        "
-      ></a>
+  <!-- BLOCS -->
+  <section class="home-blocks">
+    <div class="blocks-grid">
+      {blocs.map((b) => (
+        <a class="block-card" href={b.href}>
+          <div class="block-media">
+            <img src={b.img} alt={b.alt} loading="lazy" />
+          </div>
 
-      <!-- ====== Batterie au sable ====== -->
-      <a
-        href="/fr/energie"
-        aria-label="Batterie au sable"
-        style="
-          position:absolute;
-          left:0%;
-          top:28%;
-          width:33%;
-          height:28%;
-          background:rgba(0,0,0,0);
-          cursor:pointer;
-          display:block;
-          z-index:10;
-        "
-      ></a>
-
-      <!-- ====== Compostage ====== -->
-      <a
-        href="/fr/environnement/compostage"
-        aria-label="Compostage"
-        style="
-          position:absolute;
-          left:63%;
-          top:0%;
-          width:37%;
-          height:25%;
-          background:rgba(0,0,0,0);
-          cursor:pointer;
-          display:block;
-          z-index:10;
-        "
-      ></a>
-
-      <!-- ====== Eaux grise et noire ====== -->
-      <a
-        href="/fr/environnement/eau"
-        aria-label="Eaux grise et noire"
-        style="
-          position:absolute;
-          left:72%;
-          top:38%;
-          width:28%;
-          height:16%;
-          background:rgba(0,0,0,0);
-          cursor:pointer;
-          display:block;
-          z-index:10;
-        "
-      ></a>
-
-      <!-- ====== Gestion des déchets ====== -->
-      <a
-        href="/fr/environnement/dechets"
-        aria-label="Gestion des déchets"
-        style="
-          position:absolute;
-          left:75%;
-          top:55%;
-          width:26%;
-          height:14%;
-          background:rgba(0,0,0,0);
-          cursor:pointer;
-          display:block;
-          z-index:10;
-        "
-      ></a>
-
+          <div class="block-body">
+            <h2>{b.title}</h2>
+            <p>{b.desc}</p>
+            <span class="block-cta">Découvrir →</span>
+          </div>
+        </a>
+      ))}
     </div>
-  </div>
+  </section>
+
 </BaseLayout>
+
+<style>
+
+.hero img{
+  width:100%;
+  height:60vh;
+  max-height:520px;
+  object-fit:cover;
+  display:block;
+}
+
+.home-blocks{
+  padding:3rem 2rem;
+  max-width:1200px;
+  margin:auto;
+}
+
+.blocks-grid{
+  display:grid;
+  gap:1.5rem;
+  grid-template-columns:1fr;
+}
+
+@media (min-width:900px){
+  .blocks-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+}
+
+.block-card{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid rgba(0,0,0,.08);
+  background:#fff;
+  box-shadow:0 10px 30px rgba(0,0,0,.06);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+
+.block-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 36px rgba(0,0,0,.12);
+}
+
+.block-media{
+  aspect-ratio:16/9;
+}
+
+.block-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.block-body{
+  padding:1.2rem;
+}
+
+.block-body h2{
+  margin:0 0 .4rem 0;
+  font-size:1.3rem;
+}
+
+.block-body p{
+  margin:0 0 .8rem 0;
+  color:#555;
+}
+
+.block-cta{
+  font-weight:600;
+}
+
+</style>

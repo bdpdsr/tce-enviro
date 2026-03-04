@@ -7,23 +7,164 @@ const { title = "Site produits environnement" } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>
 
   <body>
-    <header>
-      <nav>
-        <a href="/fr">Accueil</a> |
-        <a href="/fr/a-propos">À propos</a> |
-        <a href="/fr/contact">Contact</a> |
-        <a href="/fr/energie/solaire">Solaire</a>
+    <header class="site-header">
+      <a class="brand" href="/fr/">
+        <img class="logo" src="/images/logo-tce-enviro.svg" alt="TCE-Enviro" />
+      </a>
+
+      <button class="burger" aria-controls="mainnav" aria-expanded="false" type="button">
+        <span class="sr-only">Menu</span>
+        ☰
+      </button>
+
+      <nav id="mainnav" class="nav" data-open="false">
+        <a href="/fr/">Accueil</a>
+        <a href="/fr/energie/">Énergie</a>
+        <a href="/fr/environnement/">Environnement</a>
+        <a href="/fr/environnement/compostage/">Compostage</a>
+        <a href="/fr/environnement/dechets/">Déchets</a>
+        <a href="/fr/environnement/eau/">Eau</a>
+        <a href="/fr/a-propos">À propos</a>
+        <a href="/fr/contact">Contact</a>
       </nav>
-      <hr />
     </header>
+
+    <script is:inline>
+      const btn = document.querySelector(".burger");
+      const nav = document.querySelector("#mainnav");
+
+      btn?.addEventListener("click", () => {
+        const open = nav.dataset.open === "true";
+        nav.dataset.open = (!open).toString();
+        btn.setAttribute("aria-expanded", (!open).toString());
+      });
+    </script>
 
     <main>
       <slot />
     </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <span>© {new Date().getFullYear()} TCE-Enviro</span>
+        <span><a href="/fr/contact">Contact</a></span>
+      </div>
+    </footer>
+
+    <style>
+      /* Reset minimal */
+      :global(html, body) { margin: 0; padding: 0; }
+      :global(*), :global(*::before), :global(*::after) { box-sizing: border-box; }
+      :global(img) { max-width: 100%; height: auto; display: block; }
+
+      .site-header{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap: 1rem;
+        padding: 0.25rem 0.75rem;
+        position: relative;
+        background: #fff;
+      }
+
+      .brand{
+        display:flex;
+        align-items:center;
+        margin: 0;
+        padding: 0;
+      }
+
+      .logo{
+        height: 64px;
+        width: auto;
+      }
+
+      .nav{
+        display:flex;
+        gap: 1rem;
+        align-items:center;
+        justify-content:flex-end;
+      }
+
+      .nav a{
+        text-decoration:none;
+        color:inherit;
+        white-space:nowrap;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+      }
+
+      .burger{
+        display:none;
+        font-size:1.5rem;
+        background:none;
+        border:0;
+        cursor:pointer;
+        line-height:1;
+        padding: .4rem .6rem;
+      }
+
+      @media (max-width: 900px){
+        .burger{
+          display:inline-flex;
+          align-items:center;
+          justify-content:center;
+          position: relative;
+          z-index: 200;
+        }
+
+        .nav{
+          display:none;
+          position:absolute;
+          left: 0;
+          right: 0;
+          top: 100%;
+          background:#fff;
+          border-bottom: 1px solid rgba(0,0,0,.08);
+          padding: 1rem;
+          flex-direction:column;
+          gap:0.75rem;
+          z-index: 100;
+        }
+
+        .nav[data-open="true"]{
+          display:flex;
+        }
+      }
+
+      .sr-only{
+        position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+        overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+      }
+
+      .site-footer{
+        border-top: 1px solid rgba(0,0,0,.08);
+        margin-top: 2rem;
+        padding: 1rem 0.75rem;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+        font-size: .95rem;
+      }
+
+      .footer-inner{
+        display:flex;
+        justify-content:space-between;
+        gap: 1rem;
+        flex-wrap:wrap;
+      }
+
+      .site-footer a{
+        color:inherit;
+        text-decoration:none;
+      }
+      .site-footer a:hover{
+        text-decoration:underline;
+      }
+    </style>
   </body>
 </html>
-

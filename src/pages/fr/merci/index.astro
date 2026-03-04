@@ -1,0 +1,51 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Merci | TCE-enviro">
+
+<section class="thanks">
+  <h1>Merci</h1>
+
+  <p>
+    Votre message a été envoyé.  
+    Nous vous répondrons dans les meilleurs délais.
+  </p>
+
+  <a class="btn" href="/fr/">Retour à l’accueil</a>
+</section>
+
+</BaseLayout>
+
+<style>
+.thanks{
+  padding:4rem 2rem;
+  max-width:700px;
+  margin:auto;
+  text-align:center;
+}
+
+.thanks h1{
+  margin-bottom:1rem;
+}
+
+.thanks p{
+  color:#555;
+  line-height:1.6;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:1.5rem;
+  padding:.8rem 1.3rem;
+  background:#111;
+  color:#fff;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.btn:hover{
+  opacity:.9;
+}
+</style>
